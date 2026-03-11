@@ -1,0 +1,128 @@
+/* Minimal styles for The Longest View — dark purple theme */
+:root {
+  --dd-bg: #1e1229;
+  --dd-bg-subtle: #2a1a3d;
+  --dd-text: #e4dcef;
+  --dd-text-muted: #a898c0;
+  --dd-accent: #b8a0d8;
+  --dd-accent-hover: #d4c4f0;
+  --dd-border: #4a3a62;
+}
+
+html {
+  background: var(--dd-bg);
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1rem;
+  color: var(--dd-text);
+  background: var(--dd-bg);
+  min-height: 100vh;
+}
+
+header {
+  border-bottom: 2px solid var(--dd-border);
+  margin-bottom: 1.5rem;
+}
+
+header a {
+  color: var(--dd-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+header a:hover {
+  color: var(--dd-accent-hover);
+  text-decoration: underline;
+}
+
+nav a {
+  margin-right: 1rem;
+  color: var(--dd-accent);
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--dd-accent-hover);
+  text-decoration: underline;
+}
+
+a {
+  color: var(--dd-accent);
+}
+
+a:hover {
+  color: var(--dd-accent-hover);
+}
+
+.post-content { margin-top: 1rem; }
+
+time {
+  color: var(--dd-text-muted);
+  font-size: 0.9em;
+}
+
+footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--dd-border);
+  color: var(--dd-text-muted);
+  font-size: 0.9em;
+}
+
+footer a {
+  color: var(--dd-accent);
+}
+
+footer a:hover {
+  color: var(--dd-accent-hover);
+}
+
+/* Article content: keep text readable on dark background */
+article h1,
+article h2,
+article h3 {
+  color: var(--dd-text);
+}
+
+article blockquote {
+  border-left: 3px solid var(--dd-border);
+  margin: 1rem 0;
+  padding-left: 1rem;
+  color: var(--dd-text-muted);
+}
+
+/* TL;DR cards (from tldr-cards.njk + markdown file) */
+.tldr-cards {
+  margin: 1.5rem 0;
+}
+
+.tldr-cards .tldr-card-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+}
+
+.tldr-cards .tldr-card-list li {
+  display: block;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  background: var(--dd-bg-subtle);
+  border: 1px solid var(--dd-border);
+}
+
+.tldr-cards .tldr-card-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Article images: constrain width, preserve aspect ratio */
+article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
