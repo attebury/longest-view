@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+---
+
+<article>
+  <h1>{{ title }}</h1>
+  {% if page.date %}
+    <p><time datetime="{{ page.date | date("yyyy-MM-dd") }}">{{ page.date | date("yyyy-MM-dd") }}</time></p>
+  {% endif %}
+  {% if tldrPath %}
+    {% set tldrHtml = tldrPath | markdownFile %}
+    {% if tldrHtml %}
+      {% include "tldr-cards.njk" %}
+    {% endif %}
+  {% endif %}
+  {{ content | safe }}
+</article>
+

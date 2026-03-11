@@ -1,0 +1,4 @@
+- **Third path.** Not "take it down" or "honor heritage"—**keep them, understand them, and remain vigilant against tyranny.**
+- **Not just about the South.** Oppression isn't only Southern; the capacity to repress is universal—so is **unity and liberty.**
+- **We've seen it work.** Estonia (Maarjamäe), Richmond (The Valentine), and Bristol (Colston) already do "retain and explain."
+- **How it could look in the US.** A shared fact-based plaque plus a site-specific one, both with the vigilance call; an example is below.
