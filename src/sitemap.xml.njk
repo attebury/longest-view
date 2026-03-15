@@ -1,0 +1,35 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.url }}/</loc>
+    <lastmod>{{ "" | today }}</lastmod>
+  </url>
+  <url>
+    <loc>{{ site.url }}/blog.html</loc>
+    <lastmod>{{ "" | today }}</lastmod>
+  </url>
+  <url>
+    <loc>{{ site.url }}/tags/</loc>
+    <lastmod>{{ "" | today }}</lastmod>
+  </url>
+  <url>
+    <loc>{{ site.url }}/archive/</loc>
+    <lastmod>{{ "" | today }}</lastmod>
+  </url>
+  {% for post in collections.posts %}
+  <url>
+    <loc>{{ site.url }}{{ post.url }}</loc>
+    <lastmod>{{ post.date | date("yyyy-MM-dd") }}</lastmod>
+  </url>
+  {% endfor %}
+  {% for tag in collections.tagList %}
+  <url>
+    <loc>{{ site.url }}/tags/{{ tag | slugify }}/</loc>
+    <lastmod>{{ "" | today }}</lastmod>
+  </url>
+  {% endfor %}
+</urlset>

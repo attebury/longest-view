@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.tagList
+  size: 1
+  alias: tagName
+permalink: /tags/{{ tagName | slugify }}/index.html
+---
+
+<section class="page">
+  <h1>Tag: {{ tagName }}</h1>
+  <ul>
+    {% for post in collections.posts %}
+      {% if post.data.tags | contains(tagName) %}
+        <li>
+          <a href="{{ post.url }}">{{ post.data.title }}</a>
+          — {{ post.date | date("yyyy-MM-dd") }}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <p><a href="/tags/">All tags</a></p>
+</section>

@@ -1,0 +1,23 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>The Longest View</title>
+  <link href="{{ "/feed.xml" | url }}" rel="self"/>
+  <link href="{{ "/" | url }}"/>
+  <updated>{% if collections.posts[0] %}{{ collections.posts[0].date | date("yyyy-MM-dd") }}T00:00:00Z{% endif %}</updated>
+  <id>{{ "/" | url }}</id>
+  {% for post in collections.posts %}
+  <entry>
+    <title>{{ post.data.title | escape }}</title>
+    <link href="{{ post.url | url }}"/>
+    <updated>{{ post.date | date("yyyy-MM-dd") }}T00:00:00Z</updated>
+    <id>{{ post.url | url }}</id>
+    {% if post.data.description %}
+    <summary>{{ post.data.description | escape }}</summary>
+    {% endif %}
+  </entry>
+  {% endfor %}
+</feed>

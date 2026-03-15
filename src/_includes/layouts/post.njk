@@ -5,7 +5,9 @@ layout: layouts/base.njk
 <article>
   <h1>{{ title }}</h1>
   {% if page.date %}
-    <p><time datetime="{{ page.date | date("yyyy-MM-dd") }}">{{ page.date | date("yyyy-MM-dd") }}</time></p>
+    <p><time datetime="{{ page.date | date("yyyy-MM-dd") }}">{{ page.date | date("yyyy-MM-dd") }}</time> · {{ content | readingTime }}</p>
+  {% else %}
+    <p>{{ content | readingTime }}</p>
   {% endif %}
   {% if tldrPath %}
     {% set tldrHtml = tldrPath | markdownFile %}
@@ -14,5 +16,16 @@ layout: layouts/base.njk
     {% endif %}
   {% endif %}
   {{ content | safe }}
+
+  <nav class="post-nav" aria-label="Post navigation">
+    {% set prevPost = collections.posts | prevPost(page.url) %}
+    {% set nextPost = collections.posts | nextPost(page.url) %}
+    {% if prevPost %}
+      <p>Previous: <a href="{{ prevPost.url }}">{{ prevPost.data.title }}</a></p>
+    {% endif %}
+    {% if nextPost %}
+      <p>Next: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></p>
+    {% endif %}
+  </nav>
 </article>
 

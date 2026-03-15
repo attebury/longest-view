@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>The Longest View</title>
+  <link href="/feed.xml" rel="self"/>
+  <link href="/"/>
+  <updated>2026-03-09T00:00:00Z</updated>
+  <id>/</id>
+  
+  <entry>
+    <title>The Public Good, Civic Heritage, and Contested Monuments</title>
+    <link href="/blog/public-good-civic-heritage-and-contested-monuments/"/>
+    <updated>2026-03-09T00:00:00Z</updated>
+    <id>/blog/public-good-civic-heritage-and-contested-monuments/</id>
+    
+    <summary>Why we keep contested monuments—and how to use them for vigilance, not nostalgia.</summary>
+    
+  </entry>
+  
+</feed>

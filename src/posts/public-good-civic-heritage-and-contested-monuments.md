@@ -4,6 +4,11 @@ title: "The Public Good, Civic Heritage, and Contested Monuments"
 date: 2026-03-10
 permalink: "/blog/public-good-civic-heritage-and-contested-monuments/"
 tldrPath: "src/tldr/public-good-civic-heritage-and-contested-monuments.md"
+description: "Why we keep contested monuments—and how to use them for vigilance, not nostalgia."
+tags:
+  - post
+  - civic heritage
+  - monuments
 
 ---
 
