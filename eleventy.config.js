@@ -12,6 +12,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("today", function () {
     return DateTime.now().toFormat("yyyy-MM-dd");
   });
+  eleventyConfig.addFilter("year", function () {
+    return DateTime.now().toFormat("yyyy");
+  });
   eleventyConfig.addFilter("readingTime", function (html) {
     const text = (html || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
     const words = text.split(" ").filter(Boolean).length;
