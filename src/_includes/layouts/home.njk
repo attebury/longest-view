@@ -3,17 +3,44 @@ layout: layouts/base.njk
 ---
 
 <section class="page">
-  
   {{ content | safe }}
 
-  <h2>Recent posts</h2>
-  <ul>
-    {% for post in collections.recentPosts %}
-      <li>
-        <a href="{{ post.url }}">{{ post.data.title }}</a>
-        — {{ post.date | date("yyyy-MM-dd") }}
-      </li>
-    {% endfor %}
-  </ul>
+  {% set latestPost = collections.recentPosts[0] %}
+  {% if latestPost %}
+    <article>
+      <h2><a href="{{ latestPost.url }}">{{ latestPost.data.title }}</a></h2>
+      <p><time datetime="{{ latestPost.date | date("yyyy-MM-dd") }}">{{ latestPost.date | date("yyyy-MM-dd") }}</time> · {{ latestPost.templateContent | readingTime }}</p>
+      {% if latestPost.data.tldrPath %}
+        {% set tldrHtml = latestPost.data.tldrPath | markdownFile %}
+        {% if tldrHtml %}
+          {% include "tldr-cards.njk" %}
+        {% endif %}
+      {% endif %}
+      {{ latestPost.templateContent | safe }}
+      <p><a href="{{ latestPost.url }}">Permalink</a></p>
+    </article>
+
+    <h2>More posts</h2>
+    <ul>
+      {% for post in collections.recentPosts %}
+        {% if post.url != latestPost.url %}
+          <li>
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+            — {{ post.date | date("yyyy-MM-dd") }}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h2>Recent posts</h2>
+    <ul>
+      {% for post in collections.recentPosts %}
+        <li>
+          <a href="{{ post.url }}">{{ post.data.title }}</a>
+          — {{ post.date | date("yyyy-MM-dd") }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
   <p><a href="/blog.html">All posts</a></p>
 </section>
